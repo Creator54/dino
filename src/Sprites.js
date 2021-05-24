@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Sprites = {
     dino: {
       x: 1338,

@@ -7,8 +7,6 @@
 #dino{
 	width: 30px;
 	height: 30px;
-	/* background-image: url(dino.png); */
-	background-size: 30px 30px;
 	position: relative;
 	top: 310px;
 	left: 20px;
@@ -34,20 +32,13 @@
 	}
 }
 #cactus{
-	width: 35px;
-	height: 35px;
 	position: relative;
 	top: 300px;
-	left: 580px;
-
-	/* background-image: url(block.png); */
-	background-size: 35px 35px;
-
-	animation: block 1.5s infinite linear;
+	animation: block 4s infinite linear;
 }
 @keyframes block{
 	0%{
-		left: 560px;
+		left: 1200px;
 	}
 	100%{
 		left: 0px;
@@ -93,7 +84,12 @@
   }
 }
 
+.wrapper{
+  text-align: center;
+}
+
 .button{
-	background-color: blue;
-	text-align: center;
+  background-color: blue;
+  position: absolute;
+  top: 500px;
 }
