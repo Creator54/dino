@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import img from './sprite.png'
 import { SpriteSheet } from 'react-spritesheet'
+import React, { Component } from 'react'
 
 const spritesheet = {
   dino: {
@@ -36,22 +37,38 @@ const spritesheet = {
   },
 }
 
-function App() {
-  return (
+
+export default class App extends Component {
+  state={
+    class:""
+  }
+  handleKeyPress=(event)=>{
+      this.setState({class:"jump"});
+      // console.log(this.state.class);
+      setTimeout(function(){
+        this.setState({class:""});
+      }.bind(this),200);
+      
+  }
+  render() {
+    return (
+      <div>
     <Router>
-      <div className="App">
-        <div className="Dino">
+      <div className="game">
+        <div id="dino" className={this.state.class} >
           <SpriteSheet filename={img} data={spritesheet} sprite="dino" />
-          <SpriteSheet filename={img} data={spritesheet} sprite="cactus1" />
-          <SpriteSheet filename={img} data={spritesheet} sprite="cactus2" />
-          <SpriteSheet filename={img} data={spritesheet} sprite="cactus3" />
-          <SpriteSheet filename={img} data={spritesheet} sprite="cactus4" />
         </div>
-        <header className="App-header">
-        </header>
+        <div id="cactus" >
+        <SpriteSheet filename={img} data={spritesheet} sprite="cactus1" />
+        </div>
+      </div>
+      <div>
+      <button className="button" onClick={this.handleKeyPress}>Jump</button>
       </div>
     </Router>
   );
+      </div>
+    )
+  }
 }
 
-export default App;
