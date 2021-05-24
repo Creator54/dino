@@ -29,10 +29,9 @@ export default class App extends Component {
             <div id="cactus" >
               <SpriteSheet filename={img} data={Sprites} sprite="cactus1" />
             </div>
-          </div>
-          <div class="wrapper">
             <button className="button" onClick={this.handleKeyPress}>Jump</button>
           </div>
+          <div class="wrapper">          </div>
         </Router>
       </div>
     )
