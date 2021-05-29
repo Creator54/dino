@@ -17,19 +17,67 @@
 }
 @keyframes jump{
 	0%{
+		top: 200px;
+	}
+	5%{
+		top: 190px;
+	}
+	10%{
+		top: 180px;
+	}
+	15%{
+		top: 170px;
+	}
+	20%{
+		top: 160px;
+	}
+	25%{
 		top: 150px;
 	}
 	30%{
+		top: 140px;
+	}
+	35%{
 		top: 130px;
+	}
+	40%{
+		top: 120px;
+	}
+	45%{
+		top: 110px;
 	}
 	50%{
-		top: 80px;
+		top: 100px;
 	}
-	80%{
+	55%{
+		top: 110px;
+	}
+	60%{
+		top: 120px;
+	}
+	65%{
 		top: 130px;
 	}
-	100%{
+	70%{
+		top: 140px;
+	}
+	75%{
 		top: 150px;
+	}
+	80%{
+		top: 160px;
+	}
+	85%{
+		top: 170px;
+	}
+	90%{
+		top: 180px;
+	}
+	95%{
+		top: 190px;
+	}
+	100%{
+		top: 200px;
 	}
 }
 #cactus{
