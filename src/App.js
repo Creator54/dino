@@ -10,7 +10,7 @@ export default class App extends Component {
       super(props);
       this.switchImage = this.switchImage.bind(this);
       this.state = {
-        random_cactus: 0,
+        random_cactus: 1,
         cactus_array: [ "cactus1", "cactus2", "cactus3", "cactus4"],
       }
   }
