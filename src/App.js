@@ -23,26 +23,27 @@ export default class App extends Component {
     super(props);
     this.switchImage = this.switchImage.bind(this);
     this.state = {
-      random_cactus: 1,
-      cactus_array: [ "cactus1", "cactus2", "cactus3", "cactus4"],
+      count: 1,
+      cactus_array: [ "cactus1", "cactus2", "cactus3", "cactus4"],//4000
+      dino_array: [ "dino0","dino1","dino0","dino1"],//100
     }
   }
 
   switchImage() {
-    if (this.state.random_cactus < this.state.cactus_array.length - 1) {
+    if (this.state.count < 3) {
       this.setState({
-        random_cactus: this.state.random_cactus + 1
+        count: this.state.count + 1
       });
     } else {
       this.setState({
-        random_cactus: 0
+        count: 1
       });
     }
-    return this.random_cactus;
+    return this.count;
   }
 
   componentDidMount() {
-    setInterval(this.switchImage, 4000);
+    setInterval(this.switchImage, 100);
   }
 
   render() {
@@ -51,10 +52,10 @@ export default class App extends Component {
         <Router>
           <div className="game">
             <div id="dino" className={this.state.class} >
-              <SpriteSheet filename={img} data={Sprites} sprite="dino" />
+              <SpriteSheet filename={img} data={Sprites} sprite={this.state.dino_array[this.state.count]} />
             </div>
             <div id="cactus" >
-              <SpriteSheet filename={img} data={Sprites} sprite={this.state.cactus_array[this.state.random_cactus]} />
+              <SpriteSheet filename={img} data={Sprites} sprite={this.state.cactus_array[this.state.count]} />
             </div>
             <button className="button" onClick={this.handleKeyPress}>Jump</button>
           </div>
