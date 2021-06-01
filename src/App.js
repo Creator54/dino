@@ -4,6 +4,7 @@ import img from './sprite.png'
 import { SpriteSheet } from 'react-spritesheet'
 import { Component } from 'react'
 import Sprites from './Sprites';
+import road from './road';
 
 export default class App extends Component {
   constructor(props) {
@@ -19,7 +20,8 @@ export default class App extends Component {
     this.switchDino = this.switchDino.bind(this);
   }
 
-  handleKeyPress=()=>{
+  handleKeyPress=(e)=>{
+    if (e.key==='Enter')
     this.setState({class:"jump"});
     setTimeout(function(){
       this.setState({class:""});
@@ -57,7 +59,8 @@ export default class App extends Component {
             <div id="cactus" >
               <SpriteSheet filename={img} data={Sprites} sprite={this.state.cactus_array[this.state.cactus_count]} />
             </div>
-            <button className="button" onClick={this.handleKeyPress}>Jump</button>
+            <button className="button" 
+            onKeyPress={this.handleKeyPress}>Jump</button>
           </div>
         </Router>
       </div>
