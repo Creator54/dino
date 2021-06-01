@@ -5,6 +5,8 @@ import { SpriteSheet } from 'react-spritesheet'
 import { Component } from 'react'
 import Sprites from './Sprites';
 
+let score=0;
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,8 @@ export default class App extends Component {
     this.setState({class:"jump"});
     setTimeout(function(){
       this.setState({class:""});
-    }.bind(this),200);  
+    }.bind(this),200);
+    score++; 
   }
 
   switchCactus() {
@@ -57,6 +60,9 @@ export default class App extends Component {
             </div>
             <div id="cactus" >
               <SpriteSheet filename={img} data={Sprites} sprite={this.state.cactus_array[this.state.cactus_count]} />
+            </div>
+            <div className="scoreboard">
+              <h1>Score: {score}</h1>
             </div>
           </div>
         </Router>
