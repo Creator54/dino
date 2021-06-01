@@ -4,7 +4,6 @@ import img from './sprite.png'
 import { SpriteSheet } from 'react-spritesheet'
 import { Component } from 'react'
 import Sprites from './Sprites';
-import road from './road';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,7 +20,6 @@ export default class App extends Component {
   }
 
   handleKeyPress=(e)=>{
-    if (e.key==='Enter')
     this.setState({class:"jump"});
     setTimeout(function(){
       this.setState({class:""});
@@ -44,8 +42,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    setInterval(this.switchCactus, 3000);
+    setInterval(this.switchCactus, 4000);
     setInterval(this.switchDino, 200);
+    document.addEventListener("keypress",this.handleKeyPress.bind(this))
   }
 
   render() {
@@ -53,14 +52,12 @@ export default class App extends Component {
       <div>
         <Router>
           <div className="game">
-            <div id="dino" className={this.state.class} >
+            <div id="dino" className={this.state.class} onKeyPress={this.handleKeyPress}>
               <SpriteSheet filename={img} data={Sprites} sprite={this.state.dino_array[this.state.dino_count]} />
             </div>
             <div id="cactus" >
               <SpriteSheet filename={img} data={Sprites} sprite={this.state.cactus_array[this.state.cactus_count]} />
             </div>
-            <button className="button" 
-            onKeyPress={this.handleKeyPress}>Jump</button>
           </div>
         </Router>
       </div>
